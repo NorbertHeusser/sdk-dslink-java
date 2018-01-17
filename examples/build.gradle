@@ -1,5 +1,7 @@
+apply plugin: 'application'
+
 dependencies {
-    compile project(':sdk/dslink')
+    compile project(':sdk:dslink')
 }
 
 run {
@@ -9,7 +11,7 @@ run {
 
 tasks.withType(CreateStartScripts) {
     def cutLength = "examples/".length()
-    applicationName = project.name.substring(cutLength)
+    applicationName = project.name
 }
 
 applicationDistribution.from new File(project.projectDir, "/dslink.json")
